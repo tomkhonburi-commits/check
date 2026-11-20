@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ระบบบริหารจัดการโรงเรียน (Supabase)</title>
+    <!-- ตั้งค่า Web App และไอคอนสำหรับหน้าจอโฮม iPhone / iPad -->
+    <meta name="theme-color" content="#117864">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="เช็คชื่อโรงเรียน">
+    <!-- Favicon สัญลักษณ์โรงเรียนพร้อมเครื่องหมายถูก -->
+    <link id="app-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231ABC9C'/%3E%3Cstop offset='100%25' stop-color='%23117864'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='40' fill='url(%23bg)'/%3E%3Cpath d='M90 36 L34 68 L44 68 L44 128 L136 128 L136 68 L146 68 Z' fill='%23ffffff'/%3E%3Crect x='76' y='92' width='28' height='36' rx='4' fill='%23117864'/%3E%3Crect x='54' y='78' width='14' height='14' rx='3' fill='%231ABC9C'/%3E%3Crect x='112' y='78' width='14' height='14' rx='3' fill='%231ABC9C'/%3E%3Crect x='30' y='126' width='120' height='10' rx='5' fill='%23E2F7F3'/%3E%3Ccircle cx='132' cy='130' r='32' fill='%23F59E0B' stroke='%23ffffff' stroke-width='6'/%3E%3Cpath d='M118 130 L128 140 L147 119' fill='none' stroke='%23ffffff' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <!-- Apple Touch Icon (ระบบจะสร้างเป็นไฟล์ PNG 180x180 ให้อัตโนมัติเพื่อให้ iPhone/iPad แสดงผลคมชัด) -->
+    <link id="apple-touch-icon" rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/sklschool/check/6e3b6239bd39916526c0723abc97fc839459bb79/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1097,6 +1106,15 @@
                 const imgEl = document.getElementById(id);
                 if (imgEl) { imgEl.src = currentLogo; imgEl.style.display = currentLogo ? 'block' : 'none'; }
             });
+            updateFavicon(currentLogo);
+        }
+
+        function updateFavicon(logoUrl) {
+            if (!logoUrl) return;
+            const fav = document.getElementById('app-favicon');
+            const appleIcon = document.getElementById('app-apple-touch-icon');
+            if (fav) fav.href = logoUrl;
+            if (appleIcon) appleIcon.href = logoUrl;
         }
 
         function renderSpecialHolidays() {
@@ -3217,6 +3235,7 @@
                         const imgEl = document.getElementById(id);
                         if (imgEl) { imgEl.src = currentLogo; imgEl.style.display = 'block'; }
                     });
+                    updateFavicon(currentLogo);
                 };
                 reader.readAsDataURL(file);
             }
@@ -3272,6 +3291,77 @@
             }
             container.innerHTML = html; applyTheme(currentTheme, false);
         }
+
+        // สร้าง Apple Touch Icon แบบ PNG ความละเอียด 180x180 (รูปโรงเรียน + เครื่องหมายถูกเช็คชื่อ) สำหรับ iPhone/iPad
+        function generateAppleTouchIcon() {
+            try {
+                const canvas = document.createElement('canvas');
+                canvas.width = 180;
+                canvas.height = 180;
+                const ctx = canvas.getContext('2d');
+                if (!ctx) return;
+
+                // พื้นหลังไล่เฉดสีเขียวประจำโรงเรียน
+                const grad = ctx.createLinearGradient(0, 0, 180, 180);
+                grad.addColorStop(0, '#1ABC9C');
+                grad.addColorStop(1, '#117864');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, 180, 180);
+
+                // ตัวอาคารโรงเรียนสีขาว
+                ctx.fillStyle = '#FFFFFF';
+                ctx.beginPath();
+                ctx.moveTo(90, 34);
+                ctx.lineTo(30, 68);
+                ctx.lineTo(42, 68);
+                ctx.lineTo(42, 130);
+                ctx.lineTo(138, 130);
+                ctx.lineTo(138, 68);
+                ctx.lineTo(150, 68);
+                ctx.closePath();
+                ctx.fill();
+
+                // ประตูโรงเรียน
+                ctx.fillStyle = '#117864';
+                ctx.fillRect(76, 92, 28, 38);
+
+                // หน้าต่างซ้าย-ขวา
+                ctx.fillStyle = '#1ABC9C';
+                ctx.fillRect(52, 78, 16, 16);
+                ctx.fillRect(112, 78, 16, 16);
+
+                // ฐานอาคาร
+                ctx.fillStyle = '#E2F7F3';
+                ctx.fillRect(28, 128, 124, 10);
+
+                // วงกลมสีเหลืองทองพร้อมขอบขาวมุมขวาล่าง
+                ctx.beginPath();
+                ctx.arc(132, 130, 32, 0, Math.PI * 2);
+                ctx.fillStyle = '#F59E0B';
+                ctx.fill();
+                ctx.lineWidth = 6;
+                ctx.strokeStyle = '#FFFFFF';
+                ctx.stroke();
+
+                // เครื่องหมายถูก (✓) สีขาว
+                ctx.beginPath();
+                ctx.moveTo(118, 130);
+                ctx.lineTo(128, 140);
+                ctx.lineTo(147, 119);
+                ctx.lineWidth = 8;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.strokeStyle = '#FFFFFF';
+                ctx.stroke();
+
+                const pngUrl = canvas.toDataURL('image/png');
+                const appleIcon = document.getElementById('apple-touch-icon');
+                if (appleIcon) appleIcon.href = pngUrl;
+            } catch (e) {
+                console.error('สร้าง Apple Touch Icon ไม่สำเร็จ:', e);
+            }
+        }
+        generateAppleTouchIcon();
     </script>
 </body>
 </html>
