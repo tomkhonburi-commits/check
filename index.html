@@ -178,13 +178,15 @@
                 <div id="tab-dashboard" class="block animate-fade-in max-w-6xl mx-auto print-hide">
                     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 md:p-6 mb-6">
                         <h3 class="text-sm font-medium text-gray-500 mb-4"><i class="fa-solid fa-bolt text-yellow-500 mr-2"></i>เมนูทางลัด</h3>
-                        <div class="flex flex-wrap gap-4 md:gap-6 justify-center md:justify-start">
+                        <div class="grid grid-cols-3 gap-4 md:flex md:flex-wrap md:gap-6 justify-items-center md:justify-start">
                             <button onclick="switchTab('record')" class="w-[72px] md:w-20 flex flex-col items-center justify-start group hover:-translate-y-1 transition-transform"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2DD4BF] to-[#0F766E] text-white flex items-center justify-center text-[26px] shadow-md shadow-teal-500/20 mb-2"><i class="fa-regular fa-pen-to-square"></i></div><span class="text-[11px] md:text-xs text-gray-600 font-medium text-center leading-tight">บันทึก<br>มาเรียน</span></button>
                             <button onclick="switchTab('health')" class="w-[72px] md:w-20 flex flex-col items-center justify-start group hover:-translate-y-1 transition-transform"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F472B6] to-[#BE185D] text-white flex items-center justify-center text-[24px] shadow-md shadow-pink-500/20 mb-2"><i class="fa-solid fa-weight-scale"></i></div><span class="text-[11px] md:text-xs text-gray-600 font-medium text-center leading-tight">น้ำหนัก<br>ส่วนสูง</span></button>
                             <button onclick="switchTab('hygiene')" class="w-[72px] md:w-20 flex flex-col items-center justify-start group hover:-translate-y-1 transition-transform"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#60A5FA] to-[#1D4ED8] text-white flex items-center justify-center text-[24px] shadow-md shadow-blue-500/20 mb-2"><i class="fa-solid fa-hand-sparkles"></i></div><span class="text-[11px] md:text-xs text-gray-600 font-medium text-center leading-tight">ตรวจสุขภาพ<br>เบื้องต้น</span></button>
                             <button onclick="switchTab('merit')" class="w-[72px] md:w-20 flex flex-col items-center justify-start group hover:-translate-y-1 transition-transform"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FCD34D] to-[#D97706] text-white flex items-center justify-center text-[24px] shadow-md shadow-yellow-500/20 mb-2"><i class="fa-solid fa-star"></i></div><span class="text-[11px] md:text-xs text-gray-600 font-medium text-center leading-tight">บันทึก<br>ความดี</span></button>
                             <button onclick="switchTab('stats')" class="w-[72px] md:w-20 flex flex-col items-center justify-start group hover:-translate-y-1 transition-transform"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#A78BFA] to-[#6D28D9] text-white flex items-center justify-center text-[24px] shadow-md shadow-purple-500/20 mb-2"><i class="fa-solid fa-file-invoice"></i></div><span class="text-[11px] md:text-xs text-gray-600 font-medium text-center leading-tight">รายงาน<br>สถิติรวม</span></button>
                             <button onclick="switchTab('manage-students')" class="w-[72px] md:w-20 flex flex-col items-center justify-start group hover:-translate-y-1 transition-transform"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] text-white flex items-center justify-center text-[24px] shadow-md shadow-blue-500/20 mb-2"><i class="fa-solid fa-users-gear"></i></div><span class="text-[11px] md:text-xs text-gray-600 font-medium text-center leading-tight">จัดการ<br>นักเรียน</span></button>
+                            <button onclick="switchTab('manage-classes')" class="w-[72px] md:w-20 flex flex-col items-center justify-start group hover:-translate-y-1 transition-transform"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FB923C] to-[#C2410C] text-white flex items-center justify-center text-[24px] shadow-md shadow-orange-500/20 mb-2"><i class="fa-solid fa-chalkboard-user"></i></div><span class="text-[11px] md:text-xs text-gray-600 font-medium text-center leading-tight">จัดการ<br>ชั้นเรียน</span></button>
+                            <button onclick="switchTab('manage-teachers')" class="w-[72px] md:w-20 flex flex-col items-center justify-start group hover:-translate-y-1 transition-transform"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#818CF8] to-[#4338CA] text-white flex items-center justify-center text-[24px] shadow-md shadow-indigo-500/20 mb-2"><i class="fa-solid fa-user-tie"></i></div><span class="text-[11px] md:text-xs text-gray-600 font-medium text-center leading-tight">จัดการ<br>บุคลากร</span></button>
                             <button onclick="switchTab('settings')" class="w-[72px] md:w-20 flex flex-col items-center justify-start group hover:-translate-y-1 transition-transform"><div class="w-14 h-14 rounded-2xl bg-brand-dark text-white flex items-center justify-center text-[24px] shadow-md mb-2 transition-colors duration-300"><i class="fa-solid fa-gear"></i></div><span class="text-[11px] md:text-xs text-gray-600 font-medium text-center leading-tight">ตั้งค่าระบบ</span></button>
                         </div>
                     </div>
@@ -747,19 +749,32 @@
                 <div id="tab-manage-teachers" class="hidden animate-fade-in max-w-6xl mx-auto print-hide">
                     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 md:p-6">
                         <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b pb-4 mb-6">
-                            <h2 class="text-lg font-bold text-brand-dark transition-colors"><i class="fa-solid fa-user-tie mr-2"></i>จัดการบุคลากร (ผู้ใช้งาน)</h2>
-                            <button onclick="showTeacherModal()" class="px-5 py-2.5 bg-brand-dark text-white rounded-xl text-sm font-bold shadow-md hover:bg-brand-light transition-all flex items-center hover:-translate-y-0.5"><i class="fa-solid fa-plus mr-2"></i> เพิ่มบุคลากร</button>
+                            <h2 class="text-lg font-bold text-brand-dark transition-colors"><i class="fa-solid fa-user-tie mr-2"></i>จัดการบุคลากร</h2>
+                            <div class="flex flex-wrap gap-2">
+                                <button onclick="downloadTeacherTemplate()" class="px-3.5 py-2 border border-gray-300 bg-white text-gray-700 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors"><i class="fa-solid fa-download mr-1"></i> แม่แบบ (CSV)</button>
+                                <button onclick="document.getElementById('import-teacher-csv').click()" class="px-3.5 py-2 bg-green-600 text-white rounded-xl text-sm font-medium hover:bg-green-700 transition-colors"><i class="fa-solid fa-file-import mr-1"></i> นำเข้า (CSV)</button>
+                                <input type="file" id="import-teacher-csv" class="hidden" accept=".csv" onchange="importTeacherCSV(event)">
+                                <button onclick="showBulkAddTeachersModal()" class="px-4 py-2 bg-indigo-600 text-white rounded-xl text-sm font-bold shadow-sm hover:bg-indigo-700 transition-all flex items-center"><i class="fa-solid fa-users-line mr-2"></i> เพิ่มหลายคน</button>
+                                <button onclick="showTeacherModal()" class="px-4 py-2 bg-brand-dark text-white rounded-xl text-sm font-bold shadow-md hover:bg-brand-light transition-all flex items-center hover:-translate-y-0.5"><i class="fa-solid fa-plus mr-2"></i> เพิ่มบุคลากร</button>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="relative max-w-md">
+                                <i class="fa-solid fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                <input type="text" id="manage-teacher-search" oninput="filterTeachersTable()" placeholder="ค้นหาชื่อ-สกุล, ตำแหน่ง หรือวิทยฐานะ..." class="w-full pl-10 pr-4 py-2 bg-gray-50 border rounded-xl outline-none focus:border-brand-dark text-sm">
+                            </div>
                         </div>
                         <div class="overflow-x-auto rounded-xl border border-gray-200">
                             <table class="w-full text-sm text-left">
                                 <thead class="bg-gray-100 text-gray-600 text-xs uppercase">
                                     <tr>
-                                        <th class="px-4 py-3 text-center w-12">ลำดับ</th>
-                                        <th class="px-4 py-3 text-center">ชื่อ - นามสกุล</th>
-                                        <th class="px-4 py-3 text-center">ครูเวรประจำวัน</th>
+                                        <th class="px-4 py-3 text-center w-14">ลำดับ</th>
+                                        <th class="px-4 py-3 text-left">ชื่อ - นามสกุล</th>
+                                        <th class="px-4 py-3 text-center">ตำแหน่ง</th>
+                                        <th class="px-4 py-3 text-center">วิทยฐานะ</th>
                                         <th class="px-4 py-3 text-center">ครูประจำชั้น</th>
-                                        <th class="px-4 py-3 text-center">สิทธิ์ในระบบ</th>
-                                        <th class="px-4 py-3 text-center">จัดการ</th>
+                                        <th class="px-4 py-3 text-center">ครูเวรประจำวัน</th>
+                                        <th class="px-4 py-3 text-center w-24">จัดการ</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-100 bg-white" id="teachers-table-body"></tbody>
@@ -2556,6 +2571,8 @@
         }
 
         /* ----- จัดการนักเรียน ----- */
+        let currentManageStudents = [];
+
         async function renderManageStudentsTable() {
             const classFilter = document.getElementById('manage-class-filter').value;
             const searchInput = document.getElementById('manage-student-search').value.toLowerCase();
@@ -2570,19 +2587,106 @@
                 
                 const { data, error } = await query;
                 if (error) throw error;
+
+                currentManageStudents = data || [];
                 
-                let filtered = searchInput ? data.filter(s => s.name.toLowerCase().includes(searchInput) || String(s.student_code).includes(searchInput)) : data;
+                let filtered = searchInput ? currentManageStudents.filter(s => s.name.toLowerCase().includes(searchInput) || String(s.student_code).includes(searchInput)) : currentManageStudents;
                 let html = '';
                 if(filtered.length === 0) html = '<tr><td colspan="6" class="py-8 text-center text-gray-500">ไม่พบรายชื่อนักเรียน</td></tr>';
                 else {
                     filtered.forEach(s => {
                         // รูปแบบวันเกิด
                         let dobText = s.birth_date ? new Date(s.birth_date).toLocaleDateString('th-TH') : '-';
-                        html += `<tr class="hover:bg-gray-50"><td class="px-4 py-3 text-center">${s.student_number}</td><td class="px-4 py-3 text-center text-gray-500 font-mono">${s.student_code}</td><td class="px-4 py-3 font-medium text-left">${s.name}</td><td class="px-4 py-3 text-center text-sm text-gray-500">${s.class_name}</td><td class="px-4 py-3 text-center text-sm text-gray-600">${dobText}</td><td class="px-4 py-3 text-center"><button onclick="deleteStudent('${s.student_code}')" class="text-gray-400 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button></td></tr>`;
+                        html += `<tr class="hover:bg-gray-50"><td class="px-4 py-3 text-center">${s.student_number}</td><td class="px-4 py-3 text-center text-gray-500 font-mono">${s.student_code}</td><td class="px-4 py-3 font-medium text-left">${s.name}</td><td class="px-4 py-3 text-center text-sm text-gray-500">${s.class_name}</td><td class="px-4 py-3 text-center text-sm text-gray-600">${dobText}</td><td class="px-4 py-3 text-center"><div class="flex items-center justify-center gap-3"><button onclick="showEditStudentModal('${s.student_code}')" class="text-gray-400 hover:text-blue-500 transition-colors" title="แก้ไขข้อมูล"><i class="fa-solid fa-pen-to-square"></i></button><button onclick="deleteStudent('${s.student_code}')" class="text-gray-400 hover:text-red-500 transition-colors" title="ลบข้อมูล"><i class="fa-solid fa-trash-can"></i></button></div></td></tr>`;
                     });
                 }
                 tbody.innerHTML = html;
             } catch (err) { tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-red-500">ผิดพลาด: ${err.message}</td></tr>`; }
+        }
+
+        function showEditStudentModal(oldCode) {
+            const student = currentManageStudents.find(s => String(s.student_code) === String(oldCode));
+            if (!student) return;
+
+            let classOptions = allClasses.map(c => `<option value="${c}" ${c === student.class_name ? 'selected' : ''}>${c}</option>`).join('');
+            let dobVal = formatDateForInput(student.birth_date);
+
+            Swal.fire({
+                title: '<h2 class="text-xl font-bold">แก้ไขข้อมูลนักเรียน</h2>',
+                html: `
+                <div class="space-y-4 text-left mt-2">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-500 mb-1">เลขที่</label>
+                        <input id="edit-s-num" type="number" value="${student.student_number ?? ''}" class="w-full p-3 bg-gray-50 border rounded-xl outline-none focus:border-brand-dark" placeholder="เลขที่">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-500 mb-1">รหัสประจำตัว</label>
+                        <input id="edit-s-code" type="text" value="${student.student_code ?? ''}" class="w-full p-3 bg-gray-50 border rounded-xl outline-none focus:border-brand-dark" placeholder="รหัสประจำตัว">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-500 mb-1">ชื่อ - นามสกุล</label>
+                        <input id="edit-s-name" type="text" value="${(student.name || '').replace(/"/g, '&quot;')}" class="w-full p-3 bg-gray-50 border rounded-xl outline-none focus:border-brand-dark" placeholder="ชื่อ-นามสกุล">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-500 mb-1">ชั้นเรียน</label>
+                        <select id="edit-s-class" class="w-full p-3 bg-gray-50 border rounded-xl outline-none focus:border-brand-dark">${classOptions}</select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-500 mb-1">เพศ</label>
+                        <select id="edit-s-gender" class="w-full p-3 bg-gray-50 border rounded-xl outline-none focus:border-brand-dark">
+                            <option value="M" ${student.gender !== 'F' ? 'selected' : ''}>ชาย</option>
+                            <option value="F" ${student.gender === 'F' ? 'selected' : ''}>หญิง</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-500 mb-1">วัน/เดือน/ปีเกิด (ค.ศ.)</label>
+                        <input id="edit-s-dob" type="date" value="${dobVal}" class="w-full p-3 bg-gray-50 border rounded-xl outline-none focus:border-brand-dark">
+                    </div>
+                </div>`,
+                showCancelButton: true,
+                confirmButtonText: 'บันทึกการแก้ไข',
+                cancelButtonText: 'ยกเลิก',
+                confirmButtonColor: themes[currentTheme].dark,
+                preConfirm: () => {
+                    const number = document.getElementById('edit-s-num').value;
+                    const code = document.getElementById('edit-s-code').value.trim();
+                    const name = document.getElementById('edit-s-name').value.trim();
+                    const dob = document.getElementById('edit-s-dob').value;
+                    if (!number || !code || !name) {
+                        Swal.showValidationMessage('กรุณากรอกเลขที่ รหัสประจำตัว และชื่อ-นามสกุลให้ครบ');
+                        return false;
+                    }
+                    return {
+                        student_number: parseInt(number, 10),
+                        student_code: code,
+                        name: name,
+                        class_name: document.getElementById('edit-s-class').value,
+                        gender: document.getElementById('edit-s-gender').value,
+                        birth_date: dob ? dob : null
+                    };
+                }
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({ title: 'กำลังบันทึกการแก้ไข...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
+                    try {
+                        let updateQuery = supabaseClient.from('students').update(result.value);
+                        if (student.id) {
+                            updateQuery = updateQuery.eq('id', student.id);
+                        } else {
+                            updateQuery = updateQuery.eq('student_code', oldCode);
+                        }
+                        const { error } = await updateQuery;
+                        if (error) {
+                            if (error.message.includes('birth_date')) throw new Error('คอลัมน์ birth_date ไม่มีในฐานข้อมูล กรุณาอัปเดต SQL ใน Supabase');
+                            throw error;
+                        }
+                        await renderManageStudentsTable();
+                        Swal.fire({ icon: 'success', title: 'แก้ไขข้อมูลสำเร็จ', timer: 1500, showConfirmButton: false });
+                    } catch (err) {
+                        Swal.fire('ผิดพลาด', err.message, 'error');
+                    }
+                }
+            });
         }
 
         function showAddStudentModal() {
@@ -2643,31 +2747,45 @@
             if (!file) return;
             const reader = new FileReader();
             reader.onload = async function(e) {
-                const rows = e.target.result.split('\n'); let newStudents = [];
+                const rows = e.target.result.split(/\r?\n/);
+                const studentMap = new Map(); // ใช้ Map เพื่อตัดรหัสนักเรียนซ้ำภายในไฟล์ CSV เดียวกัน
                 let missingClasses = new Set();
                 
                 for (let i = 1; i < rows.length; i++) {
+                    if (!rows[i].trim()) continue;
                     let cols = rows[i].split(',').map(c => c.trim().replace(/^"|"$/g, ''));
-                    if (cols.length >= 4 && cols[0]) {
+                    if (cols.length >= 4 && cols[0] && cols[1]) {
+                        const studentCode = cols[1];
                         const className = cols[3];
-                        if (!allClasses.includes(className)) missingClasses.add(className);
+                        if (className && !allClasses.includes(className)) missingClasses.add(className);
                         let dob = cols.length >= 6 && cols[5] ? cols[5] : null;
                         
-                        newStudents.push({ 
-                            student_number: parseInt(cols[0]), student_code: cols[1], name: cols[2], 
-                            class_name: className, gender: cols[4] || '', birth_date: dob
+                        studentMap.set(studentCode, { 
+                            student_number: parseInt(cols[0], 10),
+                            student_code: studentCode,
+                            name: cols[2], 
+                            class_name: className,
+                            gender: cols[4] || '',
+                            birth_date: dob
                         });
                     }
                 }
+
+                const newStudents = Array.from(studentMap.values());
                 
                 if (missingClasses.size > 0) {
-                    Swal.fire({title: 'กำลังสร้างชั้นเรียนใหม่...', didOpen: () => Swal.showLoading()});
+                    Swal.fire({title: 'กำลังสร้างชั้นเรียนใหม่...', allowOutsideClick: false, didOpen: () => Swal.showLoading()});
                     try {
                         const newClassesToInsert = Array.from(missingClasses).map(c => ({ class_name: c }));
-                        const { error: classError } = await supabaseClient.from('classes').insert(newClassesToInsert);
+                        const { error: classError } = await supabaseClient
+                            .from('classes')
+                            .upsert(newClassesToInsert, { onConflict: 'class_name' });
                         if (classError) throw classError;
                         
-                        Array.from(missingClasses).forEach(c => allClasses.push(c));
+                        Array.from(missingClasses).forEach(c => {
+                            if (!allClasses.includes(c)) allClasses.push(c);
+                        });
+                        allClasses = sortClasses(allClasses);
                         populateDropdowns(); renderClassesManage();
                     } catch (err) {
                         Swal.fire('เกิดข้อผิดพลาดในการสร้างชั้นเรียน', err.message, 'error');
@@ -2676,16 +2794,21 @@
                 }
 
                 if (newStudents.length > 0) {
-                    Swal.fire({title: 'กำลังนำเข้า...', didOpen: () => Swal.showLoading()});
+                    Swal.fire({title: 'กำลังนำเข้าและอัปเดตข้อมูล...', allowOutsideClick: false, didOpen: () => Swal.showLoading()});
                     try {
-                        const { error } = await supabaseClient.from('students').insert(newStudents);
+                        // ใช้ upsert โดยอ้างอิงจาก student_code: ถ้ามีรหัสเดิมอยู่แล้วจะอัปเดตข้อมูลให้ ถ้ายังไม่มีจะเพิ่มใหม่
+                        const { error } = await supabaseClient
+                            .from('students')
+                            .upsert(newStudents, { onConflict: 'student_code' });
                         if (error) {
                             if (error.message.includes('birth_date')) throw new Error('เกิดข้อผิดพลาด: โปรดอัปเดต SQL ใน Supabase เพื่อเพิ่มคอลัมน์ birth_date');
                             throw error;
                         }
-                        Swal.fire('สำเร็จ', `นำเข้าทั้งหมด ${newStudents.length} รายการ`, 'success'); 
+                        Swal.fire('สำเร็จ', `นำเข้าและอัปเดตข้อมูลนักเรียนเรียบร้อยแล้ว (${newStudents.length} รายการ)`, 'success'); 
                         renderManageStudentsTable();
                     } catch (err) { Swal.fire('ผิดพลาด', err.message, 'error'); }
+                } else {
+                    Swal.fire('แจ้งเตือน', 'ไม่พบข้อมูลนักเรียนที่ถูกต้องในไฟล์ CSV', 'warning');
                 }
                 event.target.value = '';
             };
@@ -2768,6 +2891,317 @@
                         populateDropdowns(); renderClassesManage();
                         Swal.fire('สำเร็จ', 'ลบชั้นเรียนเรียบร้อย', 'success');
                     } catch (err) { Swal.fire('ผิดพลาด', err.message, 'error'); }
+                }
+            });
+        }
+
+        /* ----- จัดการบุคลากร (Teachers) ----- */
+        async function renderTeachersManage() {
+            const tbody = document.getElementById('teachers-table-body');
+            if (!tbody) return;
+            tbody.innerHTML = '<tr><td colspan="7" class="py-12 text-center text-gray-500"><div class="modern-loader modern-loader-sm mb-3 mx-auto block"></div>กำลังโหลดข้อมูลบุคลากร...</td></tr>';
+            try {
+                const { data, error } = await supabaseClient.from('teachers').select('*').order('id', { ascending: true });
+                if (error) throw error;
+                allTeachers = data || [];
+                filterTeachersTable();
+            } catch (err) {
+                tbody.innerHTML = `<tr><td colspan="7" class="py-8 text-center text-red-500">โหลดข้อมูลล้มเหลว: ${err.message}</td></tr>`;
+            }
+        }
+
+        function filterTeachersTable() {
+            const tbody = document.getElementById('teachers-table-body');
+            const searchEl = document.getElementById('manage-teacher-search');
+            const keyword = searchEl ? searchEl.value.trim().toLowerCase() : '';
+
+            const filtered = keyword
+                ? allTeachers.filter(t =>
+                    (t.name || '').toLowerCase().includes(keyword) ||
+                    (t.position || '').toLowerCase().includes(keyword) ||
+                    (t.academic_standing || '').toLowerCase().includes(keyword) ||
+                    (t.homeroom_class || '').toLowerCase().includes(keyword)
+                  )
+                : allTeachers;
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="py-8 text-center text-gray-500">ไม่พบข้อมูลบุคลากร</td></tr>';
+                return;
+            }
+
+            let html = '';
+            filtered.forEach((t, idx) => {
+                html += `<tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-4 py-3 text-center text-gray-500">${idx + 1}</td>
+                    <td class="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">${t.name || '-'}</td>
+                    <td class="px-4 py-3 text-center text-gray-600 whitespace-nowrap">${t.position || '-'}</td>
+                    <td class="px-4 py-3 text-center text-gray-600 whitespace-nowrap">${t.academic_standing || '-'}</td>
+                    <td class="px-4 py-3 text-center text-sm text-brand-dark font-medium whitespace-nowrap">${t.homeroom_class || '-'}</td>
+                    <td class="px-4 py-3 text-center text-sm text-gray-500 whitespace-nowrap">${t.duty_day || '-'}</td>
+                    <td class="px-4 py-3 text-center">
+                        <div class="flex items-center justify-center gap-3">
+                            <button onclick="showTeacherModal(${t.id})" class="text-gray-400 hover:text-blue-500 transition-colors" title="แก้ไขข้อมูล"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button onclick="deleteTeacher(${t.id})" class="text-gray-400 hover:text-red-500 transition-colors" title="ลบข้อมูล"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </td>
+                </tr>`;
+            });
+            tbody.innerHTML = html;
+        }
+
+        function showTeacherModal(teacherId = null) {
+            const isEdit = teacherId !== null;
+            const teacher = isEdit ? allTeachers.find(t => t.id === teacherId) : null;
+            if (isEdit && !teacher) return;
+
+            const classOptions = '<option value="">-- ไม่ระบุ --</option>' +
+                allClasses.map(c => `<option value="${c}" ${teacher && teacher.homeroom_class === c ? 'selected' : ''}>${c}</option>`).join('');
+
+            const dutyDays = ['', 'วันจันทร์', 'วันอังคาร', 'วันพุธ', 'วันพฤหัสบดี', 'วันศุกร์'];
+            const dutyOptions = dutyDays.map(d => `<option value="${d}" ${teacher && (teacher.duty_day || '') === d ? 'selected' : ''}>${d || '-- ไม่ระบุ --'}</option>`).join('');
+
+            const standingList = ['ไม่มี', 'ครูชำนาญการ', 'ครูชำนาญการพิเศษ', 'ครูเชี่ยวชาญ', 'ครูเชี่ยวชาญพิเศษ', 'ชำนาญการ', 'ชำนาญการพิเศษ', 'เชี่ยวชาญ'];
+            const standingDatalist = standingList.map(s => `<option value="${s}">`).join('');
+
+            const positionList = ['ผู้อำนวยการสถานศึกษา', 'รองผู้อำนวยการสถานศึกษา', 'ครู', 'ครูผู้ช่วย', 'ครูอัตราจ้าง', 'พนักงานราชการ', 'เจ้าหน้าที่ธุรการ', 'นักการภารโรง'];
+            const positionDatalist = positionList.map(p => `<option value="${p}">`).join('');
+
+            Swal.fire({
+                title: `<h2 class="text-xl font-bold">${isEdit ? 'แก้ไขข้อมูลบุคลากร' : 'เพิ่มบุคลากร'}</h2>`,
+                html: `
+                <div class="space-y-3 text-left mt-2">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-500 mb-1">ชื่อ - นามสกุล <span class="text-red-500">*</span></label>
+                        <input id="t-name" type="text" value="${teacher ? (teacher.name || '').replace(/"/g, '&quot;') : ''}" class="w-full p-2.5 bg-gray-50 border rounded-xl outline-none focus:border-brand-dark text-sm" placeholder="เช่น นายสมชาย ใจดี">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-500 mb-1">ตำแหน่ง</label>
+                        <input id="t-position" list="t-position-list" type="text" value="${teacher ? (teacher.position || '').replace(/"/g, '&quot;') : ''}" class="w-full p-2.5 bg-gray-50 border rounded-xl outline-none focus:border-brand-dark text-sm" placeholder="เช่น ครู, ผู้อำนวยการสถานศึกษา">
+                        <datalist id="t-position-list">${positionDatalist}</datalist>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-500 mb-1">วิทยฐานะ</label>
+                        <input id="t-standing" list="t-standing-list" type="text" value="${teacher ? (teacher.academic_standing || '').replace(/"/g, '&quot;') : ''}" class="w-full p-2.5 bg-gray-50 border rounded-xl outline-none focus:border-brand-dark text-sm" placeholder="เช่น ชำนาญการ, ชำนาญการพิเศษ หรือ ไม่มี">
+                        <datalist id="t-standing-list">${standingDatalist}</datalist>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-500 mb-1">ครูประจำชั้น (ถ้ามี)</label>
+                            <select id="t-homeroom" class="w-full p-2.5 bg-gray-50 border rounded-xl outline-none focus:border-brand-dark text-sm">${classOptions}</select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-500 mb-1">ครูเวรประจำวัน (ถ้ามี)</label>
+                            <select id="t-duty" class="w-full p-2.5 bg-gray-50 border rounded-xl outline-none focus:border-brand-dark text-sm">${dutyOptions}</select>
+                        </div>
+                    </div>
+                </div>`,
+                showCancelButton: true,
+                confirmButtonText: isEdit ? 'บันทึกการแก้ไข' : 'บันทึก',
+                cancelButtonText: 'ยกเลิก',
+                confirmButtonColor: themes[currentTheme].dark,
+                preConfirm: () => {
+                    const name = document.getElementById('t-name').value.trim();
+                    if (!name) {
+                        Swal.showValidationMessage('กรุณากรอกชื่อ - นามสกุล');
+                        return false;
+                    }
+                    return {
+                        name: name,
+                        position: document.getElementById('t-position').value.trim() || null,
+                        academic_standing: document.getElementById('t-standing').value.trim() || null,
+                        homeroom_class: document.getElementById('t-homeroom').value || null,
+                        duty_day: document.getElementById('t-duty').value || null,
+                        role: document.getElementById('t-position').value.trim() || 'ครู'
+                    };
+                }
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({ title: 'กำลังบันทึก...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
+                    try {
+                        let res;
+                        if (isEdit) {
+                            res = await supabaseClient.from('teachers').update(result.value).eq('id', teacherId);
+                        } else {
+                            res = await supabaseClient.from('teachers').insert(result.value);
+                        }
+                        if (res.error) {
+                            if (res.error.message.includes('column') || res.error.message.includes('schema cache')) {
+                                throw new Error('ยังไม่มีคอลัมน์ position / academic_standing ใน Supabase กรุณารันไฟล์ SQL update_teachers_table.sql ก่อนครับ');
+                            }
+                            throw res.error;
+                        }
+                        await renderTeachersManage();
+                        Swal.fire({ icon: 'success', title: isEdit ? 'แก้ไขข้อมูลสำเร็จ' : 'เพิ่มบุคลากรสำเร็จ', timer: 1500, showConfirmButton: false });
+                    } catch (err) {
+                        Swal.fire('ผิดพลาด', err.message, 'error');
+                    }
+                }
+            });
+        }
+
+        function createBulkTeacherRowHtml() {
+            const classOptions = '<option value="">ไม่ระบุ</option>' +
+                allClasses.map(c => `<option value="${c}">${c}</option>`).join('');
+            return `
+            <tr class="bulk-teacher-row border-b border-gray-100">
+                <td class="p-1.5"><input type="text" class="bt-name w-full px-2.5 py-2 bg-gray-50 border rounded-lg text-xs outline-none focus:border-brand-dark" placeholder="ชื่อ - นามสกุล *"></td>
+                <td class="p-1.5"><input type="text" class="bt-position w-full px-2.5 py-2 bg-gray-50 border rounded-lg text-xs outline-none focus:border-brand-dark" placeholder="ตำแหน่ง (เช่น ครู)"></td>
+                <td class="p-1.5"><input type="text" class="bt-standing w-full px-2.5 py-2 bg-gray-50 border rounded-lg text-xs outline-none focus:border-brand-dark" placeholder="วิทยฐานะ (เช่น ชำนาญการ)"></td>
+                <td class="p-1.5"><select class="bt-homeroom w-full px-2 py-2 bg-gray-50 border rounded-lg text-xs outline-none focus:border-brand-dark">${classOptions}</select></td>
+                <td class="p-1.5 text-center"><button type="button" onclick="this.closest('tr').remove()" class="text-gray-400 hover:text-red-500 p-1" title="ลบแถว"><i class="fa-solid fa-xmark"></i></button></td>
+            </tr>`;
+        }
+
+        window.addBulkTeacherRow = function() {
+            const tbody = document.getElementById('bulk-teachers-tbody');
+            if (tbody) tbody.insertAdjacentHTML('beforeend', createBulkTeacherRowHtml());
+        };
+
+        function showBulkAddTeachersModal() {
+            const initialRows = createBulkTeacherRowHtml() + createBulkTeacherRowHtml() + createBulkTeacherRowHtml();
+            Swal.fire({
+                title: '<h2 class="text-xl font-bold">เพิ่มบุคลากรทีละหลายคน</h2>',
+                width: '820px',
+                html: `
+                <div class="text-left mt-2">
+                    <p class="text-xs text-gray-500 mb-3">กรอกข้อมูลบุคลากรที่ต้องการเพิ่มได้หลายรายการพร้อมกัน (แถวที่ไม่ได้กรอกชื่อจะถูกข้ามอัตโนมัติ)</p>
+                    <div class="overflow-x-auto max-h-[340px] overflow-y-auto border border-gray-200 rounded-xl">
+                        <table class="w-full text-xs text-left border-collapse min-w-[600px]">
+                            <thead class="bg-gray-100 text-gray-600 sticky top-0">
+                                <tr>
+                                    <th class="p-2">ชื่อ - นามสกุล <span class="text-red-500">*</span></th>
+                                    <th class="p-2">ตำแหน่ง</th>
+                                    <th class="p-2">วิทยฐานะ</th>
+                                    <th class="p-2 w-32">ครูประจำชั้น</th>
+                                    <th class="p-2 w-10 text-center">ลบ</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bulk-teachers-tbody">${initialRows}</tbody>
+                        </table>
+                    </div>
+                    <button type="button" onclick="addBulkTeacherRow()" class="mt-3 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl text-xs font-bold transition-colors">
+                        <i class="fa-solid fa-plus mr-1"></i> เพิ่มแถว
+                    </button>
+                </div>`,
+                showCancelButton: true,
+                confirmButtonText: 'บันทึกทั้งหมด',
+                cancelButtonText: 'ยกเลิก',
+                confirmButtonColor: themes[currentTheme].dark,
+                preConfirm: () => {
+                    const rows = document.querySelectorAll('#bulk-teachers-tbody .bulk-teacher-row');
+                    const records = [];
+                    rows.forEach(row => {
+                        const name = row.querySelector('.bt-name').value.trim();
+                        if (name) {
+                            const pos = row.querySelector('.bt-position').value.trim();
+                            records.push({
+                                name: name,
+                                position: pos || null,
+                                academic_standing: row.querySelector('.bt-standing').value.trim() || null,
+                                homeroom_class: row.querySelector('.bt-homeroom').value || null,
+                                role: pos || 'ครู'
+                            });
+                        }
+                    });
+                    if (records.length === 0) {
+                        Swal.showValidationMessage('กรุณากรอกชื่อ - นามสกุล อย่างน้อย 1 คน');
+                        return false;
+                    }
+                    return records;
+                }
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({ title: `กำลังบันทึก ${result.value.length} รายการ...`, allowOutsideClick: false, didOpen: () => Swal.showLoading() });
+                    try {
+                        const { error } = await supabaseClient.from('teachers').insert(result.value);
+                        if (error) {
+                            if (error.message.includes('column') || error.message.includes('schema cache')) {
+                                throw new Error('ยังไม่มีคอลัมน์ position / academic_standing ใน Supabase กรุณารันไฟล์ SQL update_teachers_table.sql ก่อนครับ');
+                            }
+                            throw error;
+                        }
+                        await renderTeachersManage();
+                        Swal.fire({ icon: 'success', title: 'สำเร็จ!', text: `เพิ่มบุคลากรทั้งหมด ${result.value.length} คน เรียบร้อยแล้ว`, timer: 2000, showConfirmButton: false });
+                    } catch (err) {
+                        Swal.fire('ผิดพลาด', err.message, 'error');
+                    }
+                }
+            });
+        }
+
+        function downloadTeacherTemplate() {
+            const csv = "data:text/csv;charset=utf-8,\uFEFFชื่อ-นามสกุล,ตำแหน่ง,วิทยฐานะ,ครูประจำชั้น,ครูเวรประจำวัน\nนายตัวอย่าง ใจดี,ครู,ชำนาญการพิเศษ,ป.1,วันจันทร์";
+            const link = document.createElement("a");
+            link.href = encodeURI(csv);
+            link.download = "แม่แบบบุคลากร.csv";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importTeacherCSV(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                const rows = e.target.result.split('\n');
+                const newTeachers = [];
+                for (let i = 1; i < rows.length; i++) {
+                    const cols = rows[i].split(',').map(c => c.trim().replace(/^"|"$/g, ''));
+                    if (cols.length >= 1 && cols[0]) {
+                        const pos = cols[1] || null;
+                        newTeachers.push({
+                            name: cols[0],
+                            position: pos,
+                            academic_standing: cols[2] || null,
+                            homeroom_class: cols[3] || null,
+                            duty_day: cols[4] || null,
+                            role: pos || 'ครู'
+                        });
+                    }
+                }
+                if (newTeachers.length > 0) {
+                    Swal.fire({ title: 'กำลังนำเข้าข้อมูลบุคลากร...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
+                    try {
+                        const { error } = await supabaseClient.from('teachers').insert(newTeachers);
+                        if (error) {
+                            if (error.message.includes('column') || error.message.includes('schema cache')) {
+                                throw new Error('ยังไม่มีคอลัมน์ position / academic_standing ใน Supabase กรุณารันไฟล์ SQL update_teachers_table.sql ก่อนครับ');
+                            }
+                            throw error;
+                        }
+                        await renderTeachersManage();
+                        Swal.fire('สำเร็จ', `นำเข้าข้อมูลบุคลากรทั้งหมด ${newTeachers.length} คน เรียบร้อยแล้ว`, 'success');
+                    } catch (err) {
+                        Swal.fire('ผิดพลาด', err.message, 'error');
+                    }
+                }
+                event.target.value = '';
+            };
+            reader.readAsText(file);
+        }
+
+        function deleteTeacher(teacherId) {
+            const teacher = allTeachers.find(t => t.id === teacherId);
+            Swal.fire({
+                title: 'ยืนยันการลบบุคลากร?',
+                text: teacher ? `ต้องการลบข้อมูล "${teacher.name}" ใช่หรือไม่?` : '',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonText: 'ยกเลิก',
+                confirmButtonText: 'ลบข้อมูล'
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({ title: 'กำลังลบ...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
+                    try {
+                        const { error } = await supabaseClient.from('teachers').delete().eq('id', teacherId);
+                        if (error) throw error;
+                        await renderTeachersManage();
+                        Swal.fire({ icon: 'success', title: 'ลบข้อมูลสำเร็จ', timer: 1500, showConfirmButton: false });
+                    } catch (err) {
+                        Swal.fire('ผิดพลาด', err.message, 'error');
+                    }
                 }
             });
         }
